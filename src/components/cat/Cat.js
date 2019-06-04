@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import walkSprite from '../../images/cats.png';
 
 //This controlls how the cat is styled on the screen
 class Cat extends React.Component {
@@ -16,12 +18,18 @@ class Cat extends React.Component {
                 left: this.props.position[0],
                 backgroundImage: `url('${walkSprite}')`,
                 backgroundPosition: this.props.spriteLocation, // This is what displays the characters; currently, displaying incorrectly initally
-                width: '32px',
-                height: '32px'
+                width: '50px',
+                height: '50px'
             }}
             />
         )
     }
 }
 
-export default Cat;
+function mapStateToProps(state) {
+    return {
+        ...state.cat
+    }
+}
+
+export default connect(mapStateToProps)(Cat);
