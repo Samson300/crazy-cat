@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import walkSprite from '../../images/cats.png';
+import CatMovement from '../cat/CatMovement'
 
 //This controlls how the cat is styled on the screen
 class Cat extends React.Component {
@@ -32,4 +33,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Cat);
+export default connect(mapStateToProps)(CatMovement(Cat));

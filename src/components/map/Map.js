@@ -7,8 +7,7 @@ function Map(props) {
                 width: 1000,
                 height: 500,
                 backgroundColor: 'black',
-                border: '4px solid white',
-                margin: '10px auto'
+                border: '4px solid white'
             }}
         />
     )
