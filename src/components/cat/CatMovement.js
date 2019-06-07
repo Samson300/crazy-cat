@@ -1,5 +1,5 @@
 import store from '../../config/store';
-import { SPRITE_SIZE } from '../../config/constants';
+import { SPRITE_SIZE, MAP_WIDTH, MAP_HEIGHT } from '../../config/constants';
 
 export default function CatMovement(cat) {
 
@@ -20,11 +20,18 @@ export default function CatMovement(cat) {
         }
     }
 
+    function observeBoundaries(oldPos, newPos) {
+        return (newPos[0] >= 0 && newPos[0] < MAP_WIDTH) &&
+        (newPos[1] >= 0 && newPos[1] < MAP_HEIGHT)
+        ? newPos : oldPos
+    }
+    
     function dispatchMove(direction) {
+        const oldPos = store.getState().cat.position
         store.dispatch({
             type: 'MOVE_CAT',
             payload: {
-                position: getNewPosition(direction)
+                position: observeBoundaries(oldPos, getNewPosition(direction))
             }
         })
     }
