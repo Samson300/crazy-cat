@@ -1,0 +1,9 @@
+.tile {
+    display: inline-flex;
+    background-color: black;
+}
+
+.block {
+    background-image: url('../../images/transparent_wall_new.png');
+    background-position: 0px, 0px
+}
