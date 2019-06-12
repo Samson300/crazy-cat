@@ -1,8 +1,10 @@
 import { createStore, combineReducers } from 'redux';
 import catReducer from '../reducers/catReducer';
+import mapReducer from '../reducers/mapReducer';
 
 const rootReducer = combineReducers({
-    cat : catReducer
+    cat : catReducer,
+    map : mapReducer 
 })
 
 const store = createStore(
